@@ -9,18 +9,6 @@ from .models import (
 )
 
 def home_view(request):
-    sliders = Slider.objects.filter(is_active=True)
-    content = HomeContent.objects.first()
-
-    return render(request, 'home.html', {
-        'sliders': sliders,
-        'content': content
-    })
-
-
-
-
-def home_view(request):
 
     sliders = Slider.objects.filter(is_active=True)
 
@@ -32,9 +20,6 @@ def home_view(request):
     })
 
 
-# =========================
-# SERVICES PAGE
-# =========================
 def services_view(request):
 
     intro = ServicePageIntro.objects.first()
@@ -63,9 +48,6 @@ from .models import (
 )
 
 
-# =========================================
-# PROJECTS PAGE
-# =========================================
 def projects_view(request):
 
     page = ProjectsPage.objects.first()
@@ -83,20 +65,12 @@ def projects_view(request):
 
     return render(request, 'projects.html', context)
 
-
-# =========================================
-# PROJECT DETAIL PAGE
-# =========================================
 def project_detail_view(request, slug):
 
     project = get_object_or_404(Project, slug=slug)
 
     return render(request, 'project_detail.html', {'project': project})
 
-
-# =========================================
-# SOCIAL SERVICES PAGE
-# =========================================
 def social_services_view(request):
 
     page = SocialServicesPage.objects.first()
@@ -114,10 +88,6 @@ def social_services_view(request):
 
     return render(request, 'social_services.html', context)
 
-
-# =========================================
-# SOCIAL SERVICE DETAIL PAGE
-# =========================================
 def social_service_detail_view(request, slug):
 
     service = get_object_or_404(SocialService, slug=slug)
